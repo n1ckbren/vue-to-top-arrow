@@ -1,6 +1,6 @@
 {
   "name": "vue-to-top-arrow",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Vue scroll to top arrow button",
   "keywords": [
     "vue-scroll",
@@ -48,6 +48,6 @@
     "vue": "^2.6.12"
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=11"
   }
 }
