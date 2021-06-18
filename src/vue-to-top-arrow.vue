@@ -20,12 +20,11 @@
     },
 
     created() {
+      window.addEventListener("resize", this.handleScroll);
       window.addEventListener('scroll', this.handleScroll);
     },
 
     mounted() {
-      this.clientHeight = document.documentElement.clientHeight;
-      this.pageHeight = document.body.scrollHeight;
       this.progressPath = document.querySelector('.vue-to-top path');
       this.pathLength = this.progressPath.getTotalLength();
       this.progressPath.style.transition = this.progressPath.style.WebkitTransition = 'none';
@@ -37,12 +36,15 @@
     },
 
     destroyed() {
+      window.removeEventListener("resize", this.handleScroll);
       window.removeEventListener('scroll', this.handleScroll);
     },
 
     methods: {
       handleScroll() {
         this.currentOffsetTop = window.pageYOffset;
+        this.clientHeight = document.documentElement.clientHeight;
+        this.pageHeight = document.body.scrollHeight;
         this.showToTop();
         this.drawProgress();
       },
